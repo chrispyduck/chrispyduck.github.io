@@ -8,13 +8,13 @@ Disallow: /
 
 # Block all bots from the core Homestead site
 User-agent: *
-Disallow: /~site/Scripts_ElementMailer
-Disallow: /~site/Scripts_ExternalRedirect
-Disallow: /~site/Scripts_ForSale
-Disallow: /~site/Scripts_HitCounter
-Disallow: /~site/Scripts_NewGuest
-Disallow: /~site/Scripts_RealTracker
-Disallow: /~site/Scripts_Track
-Disallow: /~site/Scripts_WebPoll
-Disallow: /~site/siteapps/showmap.action
+Disallow:/www.terrycjennings.com/~site/Scripts_ElementMailer
+Disallow:/www.terrycjennings.com/~site/Scripts_ExternalRedirect
+Disallow:/www.terrycjennings.com/~site/Scripts_ForSale
+Disallow:/www.terrycjennings.com/~site/Scripts_HitCounter
+Disallow:/www.terrycjennings.com/~site/Scripts_NewGuest
+Disallow:/www.terrycjennings.com/~site/Scripts_RealTracker
+Disallow:/www.terrycjennings.com/~site/Scripts_Track
+Disallow:/www.terrycjennings.com/~site/Scripts_WebPoll
+Disallow:/www.terrycjennings.com/~site/siteapps/showmap.action
 
