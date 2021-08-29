@@ -1,0 +1,25 @@
+_id: 2009-npr-dev
+name: "NPR: Developer"
+title: "NPR: Senior Software Developer"
+employer:
+  name: NPR
+  url: https://npr.org
+  location: Washington, DC
+  logo: npr.png
+position: Senior Software Developer
+startDate: 2009-07-01
+endDate: 2015-08-01
+summary: Primary DevOps resource for NPR's software development efforts, and lead developer on several business projects
+highlights:
+- Act as part of a dynamic and fast-paced software development team to meet the needs of a demanding customer with no tolerance for failure or downtime
+- Design redundant and scalable architecture for mission critical production systems
+- Perform live and post-mortem root cause analysis of problems; identify and implement appropriate and immediate stopgap measures as well as long term solutions
+- Coordinate software releases with IT Operations staff; provide technical documentation, guidance, and support as needed before, during and after upgrades
+- "Support a variety of development and DevOps tools, including: Assembla; Subversion; TeamCity; Atlassian’s Confluence, Jira, and Bamboo; and Slack"
+- Support and maintain a variety of lab environments for development, QA testing, and pre-production staging, using VMware’s ESXi, vCenter, PowerCLI, vCloud Director, and Lab Manager
+- Drive the effort to better document production systems, their interdependencies, and their interactions with various business units
+- Act as lead developer and assistant project manager for several business projects
+- Maintain NPR Shop website and perform annual internal PCI-DSS audit
+- Develop and maintain MSI packages using WiX
+- Prepare NewsFlex, NPR’s newsroom management system, for sale to NPR member stations
+- Develop and maintain personnel information management system that integrates with systems all over the organization to help streamline business processes

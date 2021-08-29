@@ -1,1 +1,25 @@
-theme: jekyll-theme-dinky
+title: Chris Carlson
+email: null
+description: >- 
+  Chris Carlson is a software architect, soapmaker, landscaper, pianist, and herder of tiny bio-terrorists.
+baseurl: / 
+url: https://chrispyduck.github.io 
+domain: chrispyduck.github.io
+github_username: chrispyduck
+linkedin_username: chrispyduck
+theme: minima
+plugins:
+- jekyll-datapage-generator
+exclude: []
+
+
+header_pages:
+#- "fun.markdown"
+- "work-history.html"
+
+# google_analytics: 
+page_gen:
+- data: resume
+  template: work-history-detail
+  dir: work-history
+  name_expr: record['_id']

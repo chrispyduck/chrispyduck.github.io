@@ -1,0 +1,20 @@
+_id: 2015-sytech
+name: "SyTech: Developer"
+title: "SyTech: Developer"
+employer:
+  name: SyTech Corporation
+  short_name: SyTech
+  url: https://sytechcorp.com
+  location: Alexandria, VA
+  logo: sytech.png
+position: Developer
+startDate: 2015-09-01
+endDate: 2017-01-01
+summary: >-
+  Staff developer for [ADACS](http://sytechcorp.com/products) wiretapping software and 
+  SmartBug app to turn Android phones into listening devices
+highlights:
+- Maintain and improve upon packet data wiretapping capabilities in [ADACS](http://sytechcorp.com/products)
+- Find and create methods for helping law enforcement find meaning in wiretapped internet traffic
+- Update and maintain Android SmartBug application designed to turn phones into covert monitoring devices, along with Windows clients used for remote control and monitoring
+- Performance tuning of large Microsoft SQL datasets (>100 million rows) using SQL Profiler and third party tools

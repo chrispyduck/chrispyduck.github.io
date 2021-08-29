@@ -1,0 +1,21 @@
+_id: 2019-ids
+name: "IDS: Architect"
+title: "IDS: Senior Software Architect"
+employer:
+  name: IDS International
+  short_name: IDS
+  url: https://idsinternational.com
+  location: Arlington, VA; Remote
+  logo: ids.png
+position: Senior Software Architect
+startDate: 2019-07-01
+#endDate: ""
+summary: Senior developer for [SMEIR](https://smeir.net), an information warfare training environment
+highlights:
+- Lead a small fast-paced software development team building [SMEIR](https://smeir.net) in an environment with frequently changing requirements and deadlines, and competing priorities
+- Grow the product development team from 2 part time developers to its peak of 16 people, including a 2 person DevOps team, 3 person QA team, a SCRUM Master, development manager, and two smaller dev teams
+- Mentor and advise team members at all levels through professional and technical challenges
+- Start and host weekly "group therapy" sessions where team members can discuss what they're working on, ask questions, and work through problems as equals
+- Re-architect command and control system to use dotnet core for primary microservices, gRPC for synchronous communication, AMQP for async communication, and a mixture of nodejs, python, and PHP for other services
+- Host open design meetings to work through the details of upcoming architectural changes and gain input from designers, developers, team leads, and stakeholders as needed
+- Complete a variety of development and devops tasks as needed, in multiple languages and frameworks, to support the team, clear roadblocks, and improve everyone’s quality of life

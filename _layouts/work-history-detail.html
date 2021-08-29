@@ -1,0 +1,25 @@
+---
+layout: work-history
+parent: /work-history/
+---
+<a id="back-to-overview" href="/work-history/">Back to Overview</a>
+<section id="summary">
+  <dl>
+    <dt>Company</dt>
+    <dd><a href="{{ page.employer.url }}" target="_new">{{ page.employer.name }}</a></dd>
+    <dt>Position</dt>
+    <dd>{{ page.position }}</dd>
+    <dt>Start</dt>
+    <dd>{{ page.startDate | date: '%B %Y' }}</dd>
+    <dt>End</dt>
+    <dd>{{ page.endDate | default: "Present" | date: '%B %Y' }}</dd>
+  </dl>
+  <img class="company-logo" src="/assets/images/{{ page.employer.logo }}" alt="Logo for {{ page.employer.name }}"/>
+</section>
+
+<h1>Highlights</h1>
+<ul>
+{% for highlight in page.highlights %}
+  <li>{{ highlight | markdownify }}</li>
+{% endfor %}
+</ul>

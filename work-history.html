@@ -1,0 +1,25 @@
+---
+layout: work-history
+title: Work History
+permalink: /work-history/
+---
+
+<ul class="work-history-summary">
+  {% assign sortedResume = site.data.resume | date_sort: 'startDate' %}
+  {% for entry_hash in sortedResume reversed %}
+  {% assign entry = entry_hash[1] %}
+  <li>
+    <h3 class="title">
+      <a href="/work-history/{{ entry._id }}">
+        {{ entry.title }}
+      </a>
+    </h3>
+    <div class="dates">
+      {{ entry.startDate | date: '%B %Y' | ifnull: "Unknown" }} &mdash; {{ entry.endDate | default: "Present" | date: '%B %Y' }}<br/>
+    </div>
+    <div class="summary">
+      {{ entry.summary | markdownify }}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
