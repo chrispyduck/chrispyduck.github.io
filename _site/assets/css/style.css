@@ -202,7 +202,7 @@ section#summary dl { display: flex; flex-flow: row wrap; flex-basis: 60%; border
 section#summary dl dt { flex-basis: 17%; padding: 2px 10px; margin: 0; background: #828282; text-align: right; color: #fff; border: solid 2px #828282; }
 section#summary dl dt:first-of-type { border-radius: 6px 0 0 0; }
 section#summary dl dt:last-of-type { border-radius: 0 0 0 6px; }
-section#summary dl dd { flex-basis: 70%; flex-grow: 1; margin: 0; padding: 4px 4px 1px 4px; border-bottom: 1px solid #828282; }
+section#summary dl dd { flex-basis: 70%; flex-grow: 1; margin: 0; padding: 4px 4px 1px 10px; border-bottom: 1px solid #828282; }
 section#summary dl dd:last-child { border-bottom: none; }
 
 article.post { position: relative; }
@@ -212,6 +212,12 @@ article.post aside#sidebar section#toc ul li a { line-height: 200%; padding: 6px
 article.post aside#sidebar section#toc ul li a.active { font-weight: bold; background-color: #e8e8e8; }
 article.post a#back-to-overview { display: none; opacity: 0.7; font-size: smaller; position: relative; top: -27px; }
 article.post a#back-to-overview:before { content: '◄'; display: inline-block; }
+@media screen and (max-width: 600px) { article.post section#summary { display: block; }
+  article.post section#summary dl { display: block; }
+  article.post section#summary dl dt { text-align: left; padding-left: 0; }
+  article.post section#summary dl dt:last-of-type { border-radius: 0; }
+  article.post section#summary dl dd { padding-left: 0; }
+  article.post section#summary img { display: none; } }
 @media screen and (max-width: 1300px) { article.post aside#sidebar { display: none; }
   article.post a#back-to-overview { display: block; } }
 article.post .work-history-summary { list-style-type: none; }

@@ -42,7 +42,7 @@ section#summary {
       flex-basis: 70%;
       flex-grow: 1;
       margin: 0;
-      padding: 4px 4px 1px 4px;
+      padding: 4px 4px 1px 10px;
       border-bottom: 1px solid $grey-color;
 
       &:last-child {
@@ -99,6 +99,29 @@ article.post {
     }
   }
 
+  @include media-query($on-palm) {
+    // if the screen is small enough to hide the menu, change the way we display job summary info, too
+    section#summary {
+      display: block;
+      dl {
+        display: block;
+        dt {
+          text-align: left;
+          padding-left: 0;
+
+          &:last-of-type {
+            border-radius: 0;
+          }
+        }
+        dd {
+          padding-left: 0;
+        }
+      }
+      img {
+        display: none;
+      }
+    }
+  }
   @include media-query($on-widescreen) {
     // on anything smaller than a really big screen, hide the sidebar and enable the back link
     aside#sidebar {

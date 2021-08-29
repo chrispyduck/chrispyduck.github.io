@@ -19,6 +19,8 @@ layout: page
       <ul>
         <li>Hacking, tinkering, and other forms of making electronics do my bidding</li>
         <li>Landscaping and gardening</li>
+        <li>Almost anything involving power tools</li>
+        <li>Music in all forms</li>
         <li>Acrobatics; flying trapeze, in particular</li>
       </ul>
     </p>
