@@ -15,7 +15,7 @@ permalink: /work-history/
       </a>
     </h3>
     <div class="dates">
-      {{ entry.startDate | date: '%B %Y' | ifnull: "Unknown" }} &mdash; {{ entry.endDate | default: "Present" | date: '%B %Y' }}<br/>
+      {{ entry.startDate | date: '%B %Y' }} &mdash; {{ entry.endDate | default: "Present" | date: '%B %Y' }}<br/>
     </div>
     <div class="summary">
       {{ entry.summary | markdownify }}
