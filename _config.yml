@@ -10,8 +10,11 @@ linkedin_username: chrispyduck
 theme: minima
 plugins:
 - jekyll-datapage-generator
-exclude: []
-
+exclude: 
+- push.sh
+- Gemfile
+- Gemfile.lock
+- README.md
 
 header_pages:
 #- "fun.markdown"
