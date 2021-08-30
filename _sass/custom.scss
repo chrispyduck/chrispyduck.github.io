@@ -148,6 +148,23 @@ article.post {
       top: -5px;
     }
   }
+
+  aside.photo {
+    float: right;
+    margin-right: -150px;
+  }
+  @include media-query($on-widescreen) {
+    aside.photo {
+      margin-right: inherit;
+    }
+  }
+  @include media-query($on-palm) {
+    aside.photo {
+      float: none;
+      display: block;
+      text-align: center;
+    }
+  }
 }
 
 .site-nav {
