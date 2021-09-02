@@ -196,6 +196,9 @@ table td { border: 1px solid #e8e8e8; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
 
+section.images { display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; margin-bottom: 15px; }
+section.images img { margin: 1em; max-width: 25%; max-height: 110px; object-fit: contain; }
+
 section#summary { display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; margin-bottom: 15px; }
 section#summary img.company-logo { flex-basis: 25%; max-width: 250px; max-height: 110px; object-fit: contain; }
 section#summary dl { display: flex; flex-flow: row wrap; flex-basis: 60%; border: solid 1px #828282; border-radius: 8px; margin-bottom: 0; }
@@ -220,10 +223,14 @@ article.post a#back-to-overview:before { content: '◄'; display: inline-block; 
   article.post section#summary img { display: none; } }
 @media screen and (max-width: 1300px) { article.post aside#sidebar { display: none; }
   article.post a#back-to-overview { display: block; } }
-article.post .work-history-summary { list-style-type: none; }
-article.post .work-history-summary li:hover { list-style-type: '►   '; }
-article.post .work-history-summary .title { margin-bottom: 0; }
-article.post .work-history-summary .dates { font-size: larger; opacity: 0.75; position: relative; top: -5px; }
+article.post .item-summary { list-style-type: none; }
+article.post .item-summary li + li { margin-top: 1em; }
+article.post .item-summary li:hover { list-style-type: '►   '; }
+article.post .item-summary .title { margin-bottom: 0; }
+article.post .item-summary .dates { font-size: larger; opacity: 0.75; position: relative; top: -5px; }
+article.post aside.photo { float: right; margin-right: -150px; }
+@media screen and (max-width: 1300px) { article.post aside.photo { margin-right: inherit; } }
+@media screen and (max-width: 600px) { article.post aside.photo { float: none; display: block; text-align: center; } }
 
 .site-nav .page-link { display: inline-flex; flex-direction: row; align-items: center; height: 38px; padding: 3px 8px; border: 1px transparent; border-radius: 5px; }
 .site-nav .page-link:hover { background-color: #e8e8e8; }
