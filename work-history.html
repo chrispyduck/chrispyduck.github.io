@@ -4,7 +4,7 @@ title: Work History
 permalink: /work-history/
 ---
 
-<ul class="work-history-summary">
+<ul class="item-summary work-history-summary">
   {% assign sortedResume = site.data.resume | date_sort: 'startDate' %}
   {% for entry_hash in sortedResume reversed %}
   {% assign entry = entry_hash[1] %}

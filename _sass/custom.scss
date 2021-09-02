@@ -1,5 +1,20 @@
 $corner-radius: 8px;
 
+section.images {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 15px;
+
+  img {
+    margin: 1em;
+    max-width: 25%;
+    max-height: 110px;
+    object-fit: contain;
+  }
+}
+
 section#summary {
   display: flex;
   justify-content: space-between;
@@ -30,11 +45,13 @@ section#summary {
       text-align: right;
       color: #fff;
       border: solid 2px $grey-color;
+
       &:first-of-type {
-        border-radius: ($corner-radius - 2px) 0 0 0; 
+        border-radius: ($corner-radius - 2px) 0 0 0;
       }
+
       &:last-of-type {
-        border-radius: 0 0 0 ($corner-radius - 2px); 
+        border-radius: 0 0 0 ($corner-radius - 2px);
       }
     }
 
@@ -93,6 +110,7 @@ article.post {
     font-size: smaller;
     position: relative;
     top: -27px;
+
     &:before {
       content: '◄';
       display: inline-block;
@@ -100,11 +118,14 @@ article.post {
   }
 
   @include media-query($on-palm) {
+
     // if the screen is small enough to hide the menu, change the way we display job summary info, too
     section#summary {
       display: block;
+
       dl {
         display: block;
+
         dt {
           text-align: left;
           padding-left: 0;
@@ -113,27 +134,37 @@ article.post {
             border-radius: 0;
           }
         }
+
         dd {
           padding-left: 0;
         }
       }
+
       img {
         display: none;
       }
     }
   }
+
   @include media-query($on-widescreen) {
+
     // on anything smaller than a really big screen, hide the sidebar and enable the back link
     aside#sidebar {
       display: none;
     }
+
     a#back-to-overview {
       display: block;
     }
   }
 
-  .work-history-summary {
+  .item-summary {
     list-style-type: none;
+
+    li + li { 
+      margin-top: 1em; 
+    }
+    
     li:hover {
       list-style-type: '►   ';
     }
@@ -141,6 +172,7 @@ article.post {
     .title {
       margin-bottom: 0;
     }
+
     .dates {
       font-size: larger;
       opacity: 0.75;
@@ -153,11 +185,13 @@ article.post {
     float: right;
     margin-right: -150px;
   }
+
   @include media-query($on-widescreen) {
     aside.photo {
       margin-right: inherit;
     }
   }
+
   @include media-query($on-palm) {
     aside.photo {
       float: none;

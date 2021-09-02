@@ -1,0 +1,25 @@
+<ul>
+  <li>
+    {% if page.url == "/projects/" %}
+    <a class="active" href="/projects/">
+    {% else %}
+    <a class="inactive" href="/projects/">
+    {% endif %}
+      Overview
+    </a>
+  </li>
+  {% assign sorted = site.data.projects | date_sort: 'startDate' %}
+  {% for entry_hash in sorted reversed %}
+  {% assign entry = entry_hash[1] %}
+  {% assign url = entry._id | prepend: "/projects/" | append: ".html" %}
+  <li>
+    {% if page.url == url %}
+    <a class="active" href="{{ url }}">
+    {% else %}
+    <a class="inactive" href="{{ url }}">
+    {% endif %}
+      {{ entry.name }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

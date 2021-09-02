@@ -19,7 +19,7 @@ layout: page
       I have been using computers for as long as I can remember. I have fond memories of bedtime stories from <a href="https://en.wikipedia.org/wiki/Bulletin_board_system" target="_new">BBS</a>', fixing computers with pencil erasers, and power toggle switches larger than some space bars. DOS was a big deal.
     </p>
     <p>
-      Since then, I have done a little of everything in IT with a few small breaks for things like <a href="/work-history/2006-fcps-teaching.html">that year of teaching high school</a>. I have worked in the <a href="/work-history/2003-fcps-contractor.html">education</a>, <a href="/work-history/2009-npr-dev.html">news</a>, <a href="/work-history/2017-pantheon-ahrq.html">health</a>, <a href="/work-history/2015-sytech.html">law enforcement</a>, and <a href="/work-history/2019-ids.html">defense</a> industries. My past employers include NPR and Fairfax County Public Schools. 
+      Since then, I have done a little of everything in IT. I have worked in the <a href="/work-history/2003-fcps-contractor.html">education</a>, <a href="/work-history/2009-npr-dev.html">news</a>, <a href="/work-history/2017-pantheon-ahrq.html">health</a>, <a href="/work-history/2015-sytech.html">law enforcement</a>, and <a href="/work-history/2019-ids.html">defense</a> industries. My past employers include NPR and Fairfax County Public Schools. 
     </p>
   </section>
   

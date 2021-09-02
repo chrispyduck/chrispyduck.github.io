@@ -1,0 +1,51 @@
+_id: ceph-cluster
+name: Clustered Storage
+description: A [Ceph](https://ceph.io) cluster providing fault and maintenance tolerant storage for a variety of systems
+images: 
+- path: ceph.png
+  alt: Ceph Clustered Storage
+- path: k8s.png
+  alt: Kubernetes
+- path: ubuntu_black-orange_hex_su.png
+  alt: Ubuntu Linux
+sections:
+  - header: Goals
+    content: |
+      * Survive the outage of any single node (eventually support multiple node outages)
+      * Minimal power consumption to save energy
+      * Plenty of storage for media collections, records, etc.
+      * Low maintenance, self-healing
+  - header: Hardware
+    content: |
+      * 2x [HPe MicroServer Gen10 Plus](https://buy.hpe.com/us/en/servers/proliant-microserver/proliant-microserver/proliant-microserver/hpe-proliant-microserver-gen10-plus/p/1012241014)
+        * 32GB RAM
+        * System Disk: 240GB Corsair Force MP510 NVMe
+        * Ceph Data Disks: 4x Seagate BarraCuda 8TB
+      * 2x [Raspberry Pi 4, 8GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
+        * System Disk: 32GB MicroSD
+        * Data Disk: 120GB SSD (logs, container images)
+      * 1x [UCTRONICS 1U Rackmount for up to 4x Raspberry Pi 4](https://www.uctronics.com/cluster-and-rack-mount/uctronics-ultimate-rackmount-for-raspberry-pi-4-19-1u-rack-mount-supports-1-4-units.html)
+      * 1x old custom 2U server
+        * RAM: 8GB
+        * System Disk: 128GB NVMe
+        * Data Disks: 4x 3TB disks, various makes/models
+  - header: Configuration
+    content: |
+      * 3x mon, 1 on each of the HPe servers and the third floating between the two Raspberry Pi 4's
+      * 1x mgr
+      * 1x active mds w/ hot standby
+      * 14x osd (12 HDD for storage, 2 NVMe for cache and temp storage)
+      * managed by [rook](https://rook.io)
+      * running on cri-o 1.20, kubernetes 1.22
+      * dedicated storage pools for different workloads (lower redundancy for media, higher redundancy for documents)
+  - header: Consumers
+    content: |
+      * [Emby](https://emby.media/) media server
+      * [Samba](https://www.samba.org/) file server
+      * [UniFi Controller](https://www.ui.com/) for network device management 
+      * [MongoDB](https://www.mongodb.com/) for the UniFi controller, plus a few smaller services
+      * [openHAB](https://www.openhab.org/) for [home automation](./home-automation.html)
+  - header: Future Plans
+    content: |
+      * Add Raspberry Pi OSDs with 1 SSD each in a [3U enclosure](https://www.myelectronics.nl/us/19-inch-rack-mount-3u-for-12-16x-raspberry-pi.html)
+      * Replace some HDDs with SSD or NVMe

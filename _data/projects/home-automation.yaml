@@ -1,0 +1,26 @@
+_id: home-automation
+name: Home Automation
+description: Adding a robot overlord to my brick and mortar
+images: 
+- path: openhab.png
+  alt: openHAB
+- path: mosquitto.png
+  alt: Eclipse Mosquitto
+- path: nodejs.png
+  alt: node.js
+sections:
+- header: Goals
+  content: |
+    * Remote control of lights and media systems
+    * Common scheduling, e.g.: some lights on at dusk
+    * Environmental monitoring, e.g.: temperature, humidity, air quality
+    * Energy conservation
+- header: Key Components
+  content: |
+    * Device connectivity
+      * [Mosquitto](https://mosquitto.org/) MQTT server and [Homie](https://homieiot.github.io/specification/) clients 
+      * Z-Wave radios
+      * Direct IP control, e.g.: device APIs
+    * Device software/firmware
+      * [SENSEd](https://github.com/chrispyduck/sensed), a simple sensor that reports measurements using MQTT
+    * openHAB to tie everything together

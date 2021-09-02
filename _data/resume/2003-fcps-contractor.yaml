@@ -11,9 +11,9 @@ position: IT Contractor
 startDate: 2003-01-01
 endDate: 2007-06-01
 summary: IT Contractor for Thomas Edison High School
-highlights:
-- Design and implement remote computer management and monitoring solution for Virginia SOL testing pilots
-- Automate common administrative tasks using Windows Scripting Host
-- Implement and maintain Group Policy to secure and maintain domain systems
-- Design and implement a variety of internal ASP.NET web applications
-- Manage and maintain first wireless network infrastructure in a Virginia public school
+highlights: |
+  - Design and implement remote computer management and monitoring solution for Virginia SOL testing pilots
+  - Automate common administrative tasks using Windows Scripting Host
+  - Implement and maintain Group Policy to secure and maintain domain systems
+  - Design and implement a variety of internal ASP.NET web applications
+  - Manage and maintain first wireless network infrastructure in a Virginia public school

@@ -16,8 +16,4 @@ parent: /work-history/
 </section>
 
 <h1>Highlights</h1>
-<ul>
-{% for highlight in page.highlights %}
-  <li>{{ highlight | markdownify }}</li>
-{% endfor %}
-</ul>
+{{ page.highlights | markdownify }}

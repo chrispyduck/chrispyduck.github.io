@@ -1,0 +1,18 @@
+---
+layout: projects
+parent: /projects/
+---
+<a id="back-to-overview" href="/projects/">Back to Projects</a>
+
+<section class="images">
+  {%- for img in page.images -%}
+  <img src="/assets/images/brands/{{ img.path }}" alt="{{ img.alt }}"/>
+  {%- endfor -%}
+</section>
+
+{%- for section in page.sections -%}
+<section>
+  <h1>{{ section.header }}</h1>
+  {{ section.content | markdownify }}
+</section>
+{%- endfor -%}

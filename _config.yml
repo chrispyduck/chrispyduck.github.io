@@ -19,6 +19,7 @@ exclude:
 header_pages:
 #- "fun.markdown"
 - "work-history.html"
+- "projects.html"
 
 # google_analytics: 
 page_gen:
@@ -26,3 +27,8 @@ page_gen:
   template: work-history-detail
   dir: work-history
   name_expr: record['_id']
+- data: projects
+  template: project-detail
+  dir: projects
+  name_expr: record['_id']
+  title_expr: record['name']
