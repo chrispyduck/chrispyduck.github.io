@@ -2,11 +2,12 @@ title: Chris Carlson
 email: null
 description: >- 
   Chris Carlson is a software architect, soapmaker, landscaper, pianist, and herder of tiny bio-terrorists.
-baseurl: / 
+baseurl: ""
 url: https://chrispyduck.github.io 
 domain: chrispyduck.github.io
 github_username: chrispyduck
 linkedin_username: chrispyduck
+google_analytics: G-QDEXB4N5LL
 theme: minima
 plugins:
 - jekyll-datapage-generator
