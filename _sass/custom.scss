@@ -1,5 +1,14 @@
 $corner-radius: 8px;
 
+.site-nav input:checked ~ .trigger {
+  background-color: $background-color;
+
+  a {
+    display: block;
+    clear: both;
+  }
+}
+
 section.images {
   display: flex;
   justify-content: space-between;

@@ -18,11 +18,10 @@ exclude:
 - README.md
 
 header_pages:
-#- "fun.markdown"
+- "professional-summary.html"
 - "work-history.html"
 - "projects.html"
 
-# google_analytics: 
 page_gen:
 - data: resume
   template: work-history-detail

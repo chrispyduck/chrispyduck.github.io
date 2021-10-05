@@ -1,0 +1,44 @@
+<ul>
+  {% if include.overview %}
+  <li>
+    {% if page.url == include.prefix %}
+    <a class="active" href="{{ include.prefix }}">
+    {% else %}
+    <a class="inactive" href="{{ include.prefix }}">
+    {% endif %}
+      Overview
+    </a>
+  </li>
+  {% endif %}
+  {% assign sortedItems = include.items | sort %}
+  {% if include.reverse %}
+    {% for entry_hash in sortedItems reversed %}
+    {% assign entry = entry_hash[1] %}
+    {% assign url = entry._id | prepend: include.prefix | append: include.postfix %}
+    <li>
+      {% if page.url == url %}
+      <a class="active" href="{{ url }}">
+      {% else %}
+      <a class="inactive" href="{{ url }}">
+      {% endif %}
+        {{ entry.name }}
+      </a>
+    </li>
+    {% endfor %}
+  {% else %}
+    {% for entry_hash in sortedItems %}
+    {% assign entry = entry_hash[1] %}
+    {% assign url = entry._id | prepend: include.prefix | append: include.postfix %}
+    <li>
+      {% if page.url == url %}
+      <a class="active" href="{{ url }}">
+      {% else %}
+      <a class="inactive" href="{{ url }}">
+      {% endif %}
+        {{ entry.name }}
+      </a>
+    </li>
+    {% endfor %}
+  {% endif %}
+  
+</ul>
