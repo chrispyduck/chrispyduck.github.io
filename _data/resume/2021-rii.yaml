@@ -1,0 +1,18 @@
+
+_id: 2021-rii
+name: "RII: Designer"
+title: "RII: Software Designer"
+employer:
+  name: Research Innovations, Inc
+  short_name: RII
+  url: https://researchinnovations.com
+  location: Springfield, VA; Remote
+  logo: rii.webp
+position: Software Designer
+startDate: 2021-11-01
+endDate: 2022-05-31
+summary: Led an architecture and infrastructure modernization effort
+highlights: |
+  - Lead inter-departmental effort to modernize outdated application and infrastructure architectures for the purpose of improving the utility and resiliency of, and decreasing costs associated with, deployments, routine maintenance, and ad-hoc changes
+  - Regularly collaborate with multiple teams across the organization, and with staff at all levels, to share plans and ideas, solicit feedback, and understand the organization
+  - Conduct or participate in routine production system maintenance to learn current processes and pitfalls
