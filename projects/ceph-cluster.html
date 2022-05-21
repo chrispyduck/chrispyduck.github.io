@@ -3,20 +3,21 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Clustered Storage | Chris Carlson</title>
-<meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Clustered Storage" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Kubernetes &amp; Ceph | Chris Carlson</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Kubernetes &amp; Ceph" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A Ceph cluster providing fault and maintenance tolerant storage for a variety of systems" />
-<meta property="og:description" content="A Ceph cluster providing fault and maintenance tolerant storage for a variety of systems" />
+<meta name="description" content="A Kubernetes and Ceph cluster providing fault and maintenance tolerant infrastructure" />
+<meta property="og:description" content="A Kubernetes and Ceph cluster providing fault and maintenance tolerant infrastructure" />
 <link rel="canonical" href="https://chrispyduck.github.io/projects/ceph-cluster.html" />
 <meta property="og:url" content="https://chrispyduck.github.io/projects/ceph-cluster.html" />
 <meta property="og:site_name" content="Chris Carlson" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Clustered Storage" />
+<meta property="twitter:title" content="Kubernetes &amp; Ceph" />
 <script type="application/ld+json">
-{"@type":"WebPage","description":"A Ceph cluster providing fault and maintenance tolerant storage for a variety of systems","headline":"Clustered Storage","url":"https://chrispyduck.github.io/projects/ceph-cluster.html","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"A Kubernetes and Ceph cluster providing fault and maintenance tolerant infrastructure","headline":"Kubernetes &amp; Ceph","url":"https://chrispyduck.github.io/projects/ceph-cluster.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://chrispyduck.github.io/feed.xml" title="Chris Carlson" /><script async src="https://www.googletagmanager.com/gtag/js?id=G-QDEXB4N5LL"></script>
 <script>
@@ -48,7 +49,7 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Clustered Storage</h1>
+    <h1 class="post-title">Kubernetes &amp; Ceph</h1>
   </header>
 
   <div class="post-content">
@@ -71,9 +72,9 @@
     
     <li>
       
-      <a class="active" href="/projects/ceph-cluster.html">
+      <a class="inactive" href="/projects/home-automation.html">
       
-        Clustered Storage
+        Home Automation
       </a>
     </li>
     
@@ -81,9 +82,9 @@
     
     <li>
       
-      <a class="inactive" href="/projects/home-automation.html">
+      <a class="active" href="/projects/ceph-cluster.html">
       
-        Home Automation
+        Kubernetes & Ceph
       </a>
     </li>
     
@@ -98,9 +99,11 @@
 <section class="images"><img src="/assets/images/brands/ceph.png" alt="Ceph Clustered Storage"/><img src="/assets/images/brands/k8s.png" alt="Kubernetes"/><img src="/assets/images/brands/ubuntu_black-orange_hex_su.png" alt="Ubuntu Linux"/></section><section>
   <h1>Goals</h1>
   <ul>
-  <li>Survive the outage of any single node (eventually support multiple node outages)</li>
+  <li>Survive the outage of up to 2 nodes in any tier with all data intact</li>
+  <li>Recover from catastrphic failures (e.g., total power outages)</li>
   <li>Minimal power consumption to save energy</li>
-  <li>Plenty of storage for media collections, records, etc.</li>
+  <li>Plenty of storage for media collections, records, backups, etc.</li>
+  <li>Plenty of compute power for local applications</li>
   <li>Low maintenance, self-healing</li>
 </ul>
 
@@ -114,10 +117,16 @@
       <li>Ceph Data Disks: 4x Seagate BarraCuda 8TB</li>
     </ul>
   </li>
-  <li>2x <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4, 8GB</a>
+  <li>7x <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4, 8GB</a> Worker Node
     <ul>
       <li>System Disk: 32GB MicroSD</li>
       <li>Data Disk: 120GB SSD (logs, container images)</li>
+    </ul>
+  </li>
+  <li>8x <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4, 8GB</a> OSD Node
+    <ul>
+      <li>System Disk: 32GB MicroSD</li>
+      <li>Data Disk: 1TB USB SSD</li>
     </ul>
   </li>
   <li>1x <a href="https://www.uctronics.com/cluster-and-rack-mount/uctronics-ultimate-rackmount-for-raspberry-pi-4-19-1u-rack-mount-supports-1-4-units.html">UCTRONICS 1U Rackmount for up to 4x Raspberry Pi 4</a></li>
@@ -128,17 +137,25 @@
       <li>Data Disks: 4x 3TB disks, various makes/models</li>
     </ul>
   </li>
+  <li>2x <a href="https://www.myelectronics.nl/us/19-inch-rack-mount-3u-for-12-16x-raspberry-pi.html">3U Raspberry Pi enclosure</a></li>
 </ul>
 
 </section><section>
-  <h1>Configuration</h1>
+  <h1>Kubernetes Configuration</h1>
   <ul>
-  <li>3x mon, 1 on each of the HPe servers and the third floating between the two Raspberry Pi 4’s</li>
+  <li>kubernetes 1.24</li>
+  <li>cri-o 1.20</li>
+  <li>calico 3.18</li>
+</ul>
+
+</section><section>
+  <h1>Ceph Configuration</h1>
+  <ul>
+  <li>3x mon</li>
   <li>1x mgr</li>
-  <li>1x active mds w/ hot standby</li>
-  <li>14x osd (12 HDD for storage, 2 NVMe for cache and temp storage)</li>
+  <li>2x active mds w/ 2x cold standby</li>
+  <li>22x osd (12 HDD, 8 SSD, 2 NVMe for cache and temp storage)</li>
   <li>managed by <a href="https://rook.io">rook</a></li>
-  <li>running on cri-o 1.20, kubernetes 1.22</li>
   <li>dedicated storage pools for different workloads (lower redundancy for media, higher redundancy for documents)</li>
 </ul>
 
@@ -146,17 +163,15 @@
   <h1>Consumers</h1>
   <ul>
   <li><a href="https://emby.media/">Emby</a> media server</li>
+  <li><a href="https://plex.tv">Plex</a> media server</li>
   <li><a href="https://www.samba.org/">Samba</a> file server</li>
   <li><a href="https://www.ui.com/">UniFi Controller</a> for network device management</li>
   <li><a href="https://www.mongodb.com/">MongoDB</a> for the UniFi controller, plus a few smaller services</li>
   <li><a href="https://www.openhab.org/">openHAB</a> for <a href="./home-automation.html">home automation</a></li>
-</ul>
-
-</section><section>
-  <h1>Future Plans</h1>
-  <ul>
-  <li>Add Raspberry Pi OSDs with 1 SSD each in a <a href="https://www.myelectronics.nl/us/19-inch-rack-mount-3u-for-12-16x-raspberry-pi.html">3U enclosure</a></li>
-  <li>Replace some HDDs with SSD or NVMe</li>
+  <li><a href="https://github.com/motioneye-project/motioneye">motionEye</a> for camera management</li>
+  <li><a href="https://chrony.tuxfamily.org/">chrony</a> NTP server</li>
+  <li><a href="https://mosquitto.org/">mosquitto</a> lightweight MQTT broker</li>
+  <li><a href="https://storj.io">Storj</a> data node</li>
 </ul>
 
 </section>
@@ -183,6 +198,10 @@
       </div>
     </div>
 
+    <div class="last-updated">
+      Last updated May 21, 2022
+    </div>
+    
   </div>
 
 </footer>
