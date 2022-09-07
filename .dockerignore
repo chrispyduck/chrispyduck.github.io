@@ -1,0 +1,6 @@
+Dockerfile
+*.md
+node_modules
+build
+*.sh
+.git
