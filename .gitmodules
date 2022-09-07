@@ -1,4 +1,0 @@
-[submodule "build"]
-	path = build
-	url = git@github.com:chrispyduck/chrispyduck.github.io.git
-	branch = gh-pages
