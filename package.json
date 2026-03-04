@@ -13,7 +13,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "sass": "^1.97.3",
     "typescript": "^5.7.3",
-    "vite": "^5.4.11"
+    "vite": "^7.3.1"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
