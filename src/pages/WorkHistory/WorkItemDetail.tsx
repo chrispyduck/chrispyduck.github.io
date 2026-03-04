@@ -1,4 +1,4 @@
-import { Alert, Box, Typography, useTheme } from "@mui/material";
+import { Alert, Box, Grid, Typography } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import {
@@ -6,7 +6,6 @@ import {
 } from "../../PageContainer";
 import { history, WorkHistoryItem } from "./data";
 import { format } from "date-fns";
-import Grid from "@mui/material/Unstable_Grid2";
 
 export interface WorkItemDetailProps {
   item: WorkHistoryItem;
@@ -29,7 +28,6 @@ export function WorkItemDetailFromRoute() {
 export default function WorkItemDetail({ item }: WorkItemDetailProps) {
   const pageContainer = usePageContainerContext();
   pageContainer.configureDetailView("Work History");
-  const theme = useTheme();
 
   return (
     <Box>
@@ -41,8 +39,8 @@ export default function WorkItemDetail({ item }: WorkItemDetailProps) {
           item.endDate === null ? "Present" : format(item.endDate, "MMMM yyyy")
         }`}
       </Typography>
-      <Grid container>
-        <Grid sm={6} sx={{ paddingRight: theme.spacing(2) }}>
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h3">Highlights</Typography>
           <ul>
             {item.highlights.map((highlight, index) => (
@@ -52,7 +50,7 @@ export default function WorkItemDetail({ item }: WorkItemDetailProps) {
             ))}
           </ul>
         </Grid>
-        <Grid sm={6} sx={{ paddingLeft: theme.spacing(2) }}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h3">Skills</Typography>
           <Typography>{item.skills.join(", ")}</Typography>
         </Grid>

@@ -2,6 +2,7 @@
   "name": "chrispyduck",
   "version": "2.0.0",
   "private": true,
+  "type": "module",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/mui-image": "^1.0.5",
@@ -9,8 +10,10 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-google-recaptcha": "^2.1.9",
+    "@vitejs/plugin-react": "^4.3.4",
     "sass": "^1.97.3",
-    "typescript": "^4.9.5"
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -30,20 +33,12 @@
     "react-dom": "^19.2.4",
     "react-google-recaptcha": "^3.1.0",
     "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.13.1",
-    "react-scripts": "^5.0.1"
+    "react-router-dom": "^7.13.1"
   },
   "scripts": {
-    "start": "npx react-scripts start",
-    "build": "npx react-scripts build",
-    "test": "npx react-scripts test",
-    "eject": "npx react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [

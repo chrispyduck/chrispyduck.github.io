@@ -63,7 +63,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const TopLevelNavListItem = styled(ListItem, {
   shouldForwardProp: (prop) => prop !== "active",
-})<NavListItemProps>(({ theme, active }) => ({
+})<NavListItemProps>(({ theme }) => ({
   "& a": {
     textDecoration: "none",
     color: theme.palette.text.primary,

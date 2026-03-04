@@ -1,11 +1,11 @@
 import { Typography } from "@mui/material";
 import { usePageContainerContext } from "../PageContainer";
+import { ReactNode } from "react";
 
 const SectionHeader = ({
   children,
-  ...props
 }: {
-  children: JSX.Element | string;
+  children: ReactNode;
 }) => {
   return <Typography variant="h2">{children}</Typography>;
 };

@@ -3,7 +3,6 @@ import {
   TextField,
   InputAdornment,
   Button,
-  useTheme,
   Alert,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -13,7 +12,6 @@ import { useFormik } from "formik";
 const formActionUrl = "https://smartforms.dev/submit/62f991867a195017922f1f5a";
 
 export default function ContactForm() {
-  const theme = useTheme();
   const recaptchaRef = React.createRef<ReCAPTCHA>();
   const [isSent, setIsSent] = useState(false);
   const formik = useFormik({
@@ -125,7 +123,7 @@ export default function ContactForm() {
             disableElevation
             disabled={formik.isSubmitting || !formik.isValid || isSent}
             type="submit"
-            sx={{ m: theme.spacing(1, 0, 0) }}
+            sx={{ m: 1 }}
           >
             Send
           </Button>

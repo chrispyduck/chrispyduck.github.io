@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^pkill -f \"vite\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

@@ -224,7 +224,7 @@ export const history: Array<WorkHistoryItem> = [
     id: "2021-rii-designer",
     position: "Software Designer",
     startDate: new Date(2021, 11, 1),
-    endDate: null,
+    endDate: new Date(2022, 9, 30),
     summary:
       "Led an architecture and infrastructure modernization effort with an emphasis on implementing DevOps and reliability engineering practices",
     highlights: [
@@ -244,4 +244,34 @@ export const history: Array<WorkHistoryItem> = [
       "mTLS"
     ]
   },
+  {
+    id: "2024-pdl-plat",
+    position: "Site Reliability Engineer",
+    startDate: new Date(2022, 10, 17),
+    endDate: null,
+    summary:
+      "Quietly improved the reliability and maintainability of PDL's platform and services through a variety of development, DevOps, and SRE tasks while simultaneously improving developer experience and setting new standards for observability and documentation.",
+    highlights: [
+      "Migrated GitHub action runners from self-hosted to depot.dev, improving speed by 25% and reducing costs by 66%. The migration and its benefits are detailed in public a [case study](https://depot.dev/customers/people-data-labs).",
+      "Created a library of high-level Pulumi components featuring Pydantic input validation and mixins for extensibility with the goal of allowing developers to focus on high level needs rather than low level infrastructure. Self-planned and executed the year-long implementation and earned recognition for being one of the best planned projects in the company's history.",
+      "Established IaS patterns for managing foundational infrastructure such as VPCs, subnets, and critical third-party tools.",
+      "Designed and implemented an extensible IaS framework based on Pulumi automation, allowing for simple declarative definitions of infrastructure and applications, and the ability to easily create new ones as needed, without needing to worry about the underlying implementation details. Also provided a simple mechanism for creating versioned deployments and cleared the way for other deployment patterns like blue/green.",
+    ],
+    type: "salaried",
+    company: companies.pdl,
+    skills: [
+      "Python",
+      "Datadog",
+      "AWS",
+      "ElasticSearch",
+      "GitHub",
+      "Pulumi",
+      "Terraform",
+      "Docker",
+      "Pants",
+      "Infrastructure as Software",
+      "SRE",
+      "Platform Engineering",
+    ]
+  }
 ];

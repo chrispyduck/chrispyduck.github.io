@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
+import { Grid, Typography } from "@mui/material";
 import Image from "mui-image";
 import { usePageContainerContext } from "../PageContainer";
 
@@ -8,8 +7,8 @@ export default function About() {
   pageContainer.configurePage("About Chris");
 
   return (
-    <Grid container>
-      <Grid sm={8} md={9}>
+    <Grid container spacing={2}>
+      <Grid size={{ xs: 12, sm: 8, md: 9 }}>
         <Typography>
           Hello! I'm{" "}
           <span itemProp="name">
@@ -44,8 +43,8 @@ export default function About() {
         </Typography>
       </Grid>
       <Grid
-        sm={4}
-        md={3}
+        size={{ xs: 12, sm: 4, md: 3 }}
+        container
         justifyContent="center"
         alignItems="center"
         sx={{ textAlign: "center" }}

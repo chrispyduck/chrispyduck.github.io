@@ -43,4 +43,11 @@ export const companies: { [key: string]: Company } = {
     location: "Springfield, VA; Remote",
     logo: { imageFile: "rii.webp" },
   },
+  pdl: {
+    fullName: "People Data Labs",
+    displayName: "People Data Labs",
+    url: "https://www.peopledatalabs.com/",
+    location: "Remote",
+    logo: { imageFile: "pdl.png" },
+  },
 };
