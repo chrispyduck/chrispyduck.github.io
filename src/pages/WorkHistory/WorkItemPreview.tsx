@@ -41,7 +41,11 @@ export default function WorkItemPreview({
           easing="ease"
         />
       )}
-      <Typography variant="subtitle1" component="h2">
+      <Typography
+        variant="subtitle1"
+        component="h2"
+        sx={{ color: "primary.dark", fontWeight: 600 }}
+      >
         {item.company.displayName}: {item.position}
       </Typography>
       <Typography variant="body2" color="text.secondary">

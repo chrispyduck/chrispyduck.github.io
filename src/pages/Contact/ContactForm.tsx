@@ -4,6 +4,7 @@ import {
   InputAdornment,
   Button,
   Alert,
+  Box,
 } from "@mui/material";
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -43,9 +44,11 @@ export default function ContactForm() {
   });
   return (
     <>
-      <form
+      <Box
+        component="form"
         action={formActionUrl}
         onSubmit={formik.handleSubmit}
+        sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}
       >
         <TextField
           fullWidth
@@ -114,21 +117,20 @@ export default function ContactForm() {
           disabled={formik.isSubmitting || isSent}
         />
         {isSent ? (
-          <Alert severity="success">
+          <Alert severity="success" sx={{ borderRadius: 2 }}>
             Thank you for your message. I'll be in touch soon.
           </Alert>
         ) : (
           <Button
             variant="contained"
-            disableElevation
             disabled={formik.isSubmitting || !formik.isValid || isSent}
             type="submit"
-            sx={{ m: 1 }}
+            sx={{ alignSelf: "flex-start" }}
           >
             Send
           </Button>
         )}
-      </form>
+      </Box>
       <ReCAPTCHA
         sitekey="6Lf-H7khAAAAANfE2PRobkTnei0op3Pec9Hvn7CG"
         ref={recaptchaRef}

@@ -1,4 +1,4 @@
-import { Alert, Box, Grid, Typography } from "@mui/material";
+import { Alert, Box, Chip, Grid, Stack, Typography } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import {
@@ -52,7 +52,19 @@ export default function WorkItemDetail({ item }: WorkItemDetailProps) {
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h3">Skills</Typography>
-          <Typography>{item.skills.join(", ")}</Typography>
+          <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+            {item.skills.map((skill) => (
+              <Chip
+                key={skill}
+                label={skill}
+                size="small"
+                sx={{
+                  bgcolor: "rgba(15, 155, 142, 0.1)",
+                  color: "primary.dark",
+                }}
+              />
+            ))}
+          </Stack>
         </Grid>
         <Typography id="modal-description" sx={{ mt: 2 }}></Typography>
       </Grid>

@@ -1,6 +1,8 @@
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import {
   useNavigate,
+  useLocation,
   Link,
   Outlet,
   useOutletContext,
@@ -17,59 +19,53 @@ import {
   List,
   Divider,
   ListItem,
-  ListItemProps,
-  ListItemText,
   ListItemButton,
+  ListItemIcon,
+  ListItemText,
   Button,
-  Paper,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { ArrowBack } from "@mui/icons-material";
+import CloseIcon from "@mui/icons-material/Close";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import Footer from "./components/Footer";
 
-const drawerWidth = 240;
+const drawerWidth = 260;
 
-interface NavListItemProps extends ListItemProps {
-  active?: boolean;
-}
-
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
-  open?: boolean;
-}>(({ theme }) => ({
-  flexGrow: 1,
-  padding: theme.spacing(3),
-  [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(2),
-  },
-  [theme.breakpoints.down("xs")]: {
-    padding: theme.spacing(1),
-  },
-  transition: theme.transitions.create("margin", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
+const HeaderBar = styled(MuiAppBar)(({ theme }) => ({
+  backgroundColor: "rgba(250, 248, 246, 0.78)",
+  backdropFilter: "blur(14px)",
+  color: theme.palette.text.primary,
+  borderBottom: `1px solid ${theme.palette.divider}`,
 }));
 
-const DrawerHeader = styled("div")(({ theme }) => ({
+const Wordmark = styled(Typography)(({ theme }) => ({
+  fontFamily: "Poppins",
+  fontWeight: 700,
+  fontSize: "1.15rem",
+  color: theme.palette.text.primary,
+  textDecoration: "none",
   display: "flex",
   alignItems: "center",
-  padding: theme.spacing(0, 1),
-  ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
+  gap: theme.spacing(1),
+  "&::before": {
+    content: '""',
+    display: "inline-block",
+    width: 10,
+    height: 10,
+    borderRadius: "50%",
+    background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+  },
 }));
 
-const TopLevelNavListItem = styled(ListItem, {
-  shouldForwardProp: (prop) => prop !== "active",
-})<NavListItemProps>(({ theme }) => ({
-  "& a": {
-    textDecoration: "none",
-    color: theme.palette.text.primary,
-  },
-  transition: "ease",
-}));
+const DrawerNavItem = styled(ListItemButton)<{ active?: boolean }>(
+  ({ theme, active }) => ({
+    borderRadius: theme.shape.borderRadius,
+    margin: theme.spacing(0.5, 1),
+    color: active ? theme.palette.primary.dark : theme.palette.text.primary,
+    backgroundColor: active ? "rgba(15, 155, 142, 0.1)" : "transparent",
+  })
+);
 
 interface PageContainerProps {
   window?: () => Window;
@@ -98,6 +94,15 @@ export default function PageContainer({ window }: PageContainerProps) {
   const [mode, setMode] = useState(PageContainerMode.PAGE);
   const theme = useTheme();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    document.title =
+      title && title !== "Chris Carlson"
+        ? `${title} · Chris Carlson`
+        : "Chris Carlson";
+  }, [title]);
+
   const outletContext: PageContainerOutletContext = {
     setTitle,
     setMode,
@@ -124,133 +129,148 @@ export default function PageContainer({ window }: PageContainerProps) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const isActive = (route: string) =>
+    route === "/"
+      ? location.pathname === "/"
+      : location.pathname.startsWith(route);
+
   return (
-    <>
-      <Paper
-        sx={{
-          flexGrow: 0,
-          bgcolor: "background.paper",
-          display: "flex",
-          maxWidth: "1200px",
-          flexDirection: "column",
-          minHeight: `calc(100vh - ${theme.spacing(2)} - 3em)`,
-        }}
-        elevation={4}
-      >
-        <MuiAppBar
-          component="div"
-          position="relative"
-          color={mode === PageContainerMode.PAGE ? "primary" : "secondary"}
-          elevation={0}
-        >
-          <Toolbar>
-            {mode === PageContainerMode.PAGE && (
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={toggleDrawer}
-                edge="start"
-                sx={{
-                  mr: 2,
-                  [theme.breakpoints.down("sm")]: {
-                    mr: 0,
-                  },
-                  display: { sm: "none" },
-                }}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
-            {mode === PageContainerMode.DETAIL && (
-              <IconButton
-                color="inherit"
-                aria-label="back"
-                onClick={() => navigate(-1)}
-                edge="start"
-                sx={{
-                  mr: 2,
-                }}
-              >
-                <ArrowBack />
-              </IconButton>
-            )}
-            <Typography variant="h1" noWrap sx={{ flexGrow: 1 }}>
-              {title}
-            </Typography>
-            <Box
-              sx={{
-                display: {
-                  xs: "none",
-                  sm: mode === PageContainerMode.PAGE ? "block" : "none",
-                },
-              }}
-            >
-              {pages.map((page, index) => (
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <HeaderBar position="sticky" elevation={0}>
+        <Toolbar sx={{ gap: 1 }}>
+          <Box
+            component={Link}
+            to="/"
+            sx={{ textDecoration: "none", flexGrow: 1 }}
+          >
+            <Wordmark>Chris Carlson</Wordmark>
+          </Box>
+          <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 0.5 }}>
+            {pages.map((page) => {
+              const active = isActive(page.route);
+              return (
                 <Button
-                  key={index}
-                  sx={{ color: "#fff" }}
-                  onClick={() => navigate(page.route)}
+                  key={page.route}
+                  component={Link}
+                  to={page.route}
+                  sx={{
+                    borderRadius: 999,
+                    padding: "6px 16px",
+                    fontWeight: 500,
+                    color: active ? "primary.dark" : "text.secondary",
+                    backgroundColor: active
+                      ? "rgba(15, 155, 142, 0.1)"
+                      : "transparent",
+                    boxShadow: "none",
+                    "&:hover": {
+                      backgroundColor: "rgba(15, 155, 142, 0.14)",
+                      transform: "none",
+                    },
+                  }}
                 >
                   {page.label}
                 </Button>
-              ))}
-            </Box>
-          </Toolbar>
-        </MuiAppBar>
-        <Drawer
-          sx={{
+              );
+            })}
+          </Box>
+          <IconButton
+            color="inherit"
+            aria-label="open navigation"
+            onClick={toggleDrawer}
+            edge="end"
+            sx={{ display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </HeaderBar>
+      <Drawer
+        sx={{
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-            display: { xs: "block", sm: "none" },
-          }}
-          container={container}
-          variant="temporary"
-          anchor="left"
-          open={open}
-          onClose={toggleDrawer}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            boxSizing: "border-box",
+            borderTopLeftRadius: 16,
+            borderBottomLeftRadius: 16,
+          },
+          display: { xs: "block", sm: "none" },
+        }}
+        container={container}
+        variant="temporary"
+        anchor="right"
+        open={open}
+        onClose={toggleDrawer}
+        ModalProps={{
+          keepMounted: true,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            px: 2,
+            py: 1.5,
           }}
         >
-          <DrawerHeader>
-            <Typography style={{ flexGrow: 1 }}>Chris Carlson</Typography>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === "ltr" ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
-            </IconButton>
-          </DrawerHeader>
-          <Divider />
-          <List>
-            {pages.map((page, index) => (
-              <TopLevelNavListItem
-                key={index}
-                disablePadding
-                onClick={() => {
-                  handleDrawerClose();
-                  navigate(page.route);
-                }}
-              >
-                <ListItemButton>
-                  <Link to={page.route}>
-                    <ListItemText primary={page.label} />
-                  </Link>
-                </ListItemButton>
-              </TopLevelNavListItem>
-            ))}
-          </List>
-        </Drawer>
-        <Main>
-          <Outlet context={outletContext} />
-        </Main>
-      </Paper>
+          <Wordmark sx={{ fontSize: "1rem" }}>Chris Carlson</Wordmark>
+          <IconButton onClick={handleDrawerClose} aria-label="close navigation">
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Divider />
+        <List>
+          {pages.map((page) => {
+            const Icon = page.icon;
+            return (
+              <ListItem key={page.route} disablePadding>
+                <DrawerNavItem
+                  active={isActive(page.route)}
+                  onClick={() => {
+                    handleDrawerClose();
+                    navigate(page.route);
+                  }}
+                >
+                  <ListItemIcon sx={{ minWidth: 36, color: "inherit" }}>
+                    <Icon fontSize="small" />
+                  </ListItemIcon>
+                  <ListItemText primary={page.label} />
+                </DrawerNavItem>
+              </ListItem>
+            );
+          })}
+        </List>
+      </Drawer>
+      <Container
+        component="main"
+        maxWidth="md"
+        sx={{
+          flexGrow: 1,
+          py: { xs: 4, sm: 6 },
+          px: { xs: 2.5, sm: 3 },
+        }}
+      >
+        {mode === PageContainerMode.DETAIL && (
+          <Button
+            onClick={() => navigate(-1)}
+            startIcon={<ArrowBackRoundedIcon />}
+            sx={{
+              mb: 2,
+              color: theme.palette.text.secondary,
+              "&:hover": { backgroundColor: "rgba(15, 155, 142, 0.08)" },
+            }}
+          >
+            Back
+          </Button>
+        )}
+        <Outlet context={outletContext} />
+      </Container>
       <Footer />
-    </>
+    </Box>
   );
 }
