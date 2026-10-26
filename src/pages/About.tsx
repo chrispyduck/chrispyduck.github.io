@@ -124,7 +124,8 @@ export default function About() {
           <a href="#/history/2017-panth-developer">health</a>,{" "}
           <a href="#/history/2015-sytech-developer">law enforcement</a>, {" "}
           <a href="#/history/2019-ids-architect">defense</a> industries. My
-          past employers include NPR and Fairfax County Public Schools.
+          past employers include <a href="#/history/2009-npr-developer">NPR</a>
+          and <a href="#/history/2003-ehs-contractor">Fairfax County Public Schools</a>.
         </Typography>
       </Stack>
     </Box>
