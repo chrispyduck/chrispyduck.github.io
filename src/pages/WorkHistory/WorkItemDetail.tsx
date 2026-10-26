@@ -39,6 +39,9 @@ export default function WorkItemDetail({ item }: WorkItemDetailProps) {
           item.endDate === null ? "Present" : format(item.endDate, "MMMM yyyy")
         }`}
       </Typography>
+      <Typography sx={{ color: "text.secondary", mt: 1 }}>
+        {item.summary}
+      </Typography>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h3">Highlights</Typography>

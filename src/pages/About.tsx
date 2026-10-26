@@ -68,7 +68,7 @@ export default function About() {
             I'm Chris Carlson
           </Typography>
           <Typography variant="h5" sx={{ color: "text.secondary", fontWeight: 500, mb: 2 }}>
-            Software Architect by day, herder of tiny bio-terrorists by night
+            Software Engineer, Soapmaker, Tinkerer
           </Typography>
           <Stack
             direction="row"
@@ -101,7 +101,7 @@ export default function About() {
             <span itemProp="familyName">Carlson</span>
           </span>
           , my pronouns are they/them, and I'm a{" "}
-          <span itemProp="jobTitle">Software Architect</span> by day. In my
+          <span itemProp="jobTitle">Software Engineer</span> by day. In my
           spare time I'm a soapmaker, landscaper, pianist, tinkerer, and herder
           of tiny, whiny bio-terrorists.
         </Typography>
@@ -122,7 +122,7 @@ export default function About() {
           in the <a href="#/history/2003-ehs-contractor">education</a>,{" "}
           <a href="#/history/2009-npr-developer">news</a>,{" "}
           <a href="#/history/2017-panth-developer">health</a>,{" "}
-          <a href="#/history/2015-sytech-developer">law enforcement</a>, and{" "}
+          <a href="#/history/2015-sytech-developer">law enforcement</a>, {" "}
           <a href="#/history/2019-ids-architect">defense</a> industries. My
           past employers include NPR and Fairfax County Public Schools.
         </Typography>

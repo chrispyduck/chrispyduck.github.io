@@ -250,10 +250,10 @@ export const history: Array<WorkHistoryItem> = [
     startDate: new Date(2022, 10, 17),
     endDate: null,
     summary:
-      "Quietly improved the reliability and maintainability of PDL's platform and services through a variety of development, DevOps, and SRE tasks while simultaneously improving developer experience and setting new standards for observability and documentation.",
+      "Quietly improved the reliability and maintainability of PDL's platform and services through a variety of development, DevOps, and SRE work, while raising the bar for developer experience and observability along the way.",
     highlights: [
-      "Migrated GitHub action runners from self-hosted to depot.dev, improving speed by 25% and reducing costs by 66%. The migration and its benefits are detailed in public a [case study](https://depot.dev/customers/people-data-labs).",
-      "Created a library of high-level Pulumi components featuring Pydantic input validation and mixins for extensibility with the goal of allowing developers to focus on high level needs rather than low level infrastructure. Self-planned and executed the year-long implementation and earned recognition for being one of the best planned projects in the company's history.",
+      "Migrated GitHub action runners from self-hosted to depot.dev, improving speed by 25% and reducing costs by 66%. The migration and its benefits are detailed in a public [case study](https://depot.dev/customers/people-data-labs).",
+      "Created a library of high-level Pulumi components featuring Pydantic input validation and mixins for extensibility with the goal of allowing developers to focus on high level needs rather than low level infrastructure. Self-planned and executed the year-long implementation, earned recognition for being one of the best planned projects in the company's history, and have since completed migrating the entire infrastructure codebase onto it.",
       "Established IaS patterns for managing foundational infrastructure such as VPCs, subnets, and critical third-party tools.",
       "Designed and implemented an extensible IaS framework based on Pulumi automation, allowing for simple declarative definitions of infrastructure and applications, and the ability to easily create new ones as needed, without needing to worry about the underlying implementation details. Also provided a simple mechanism for creating versioned deployments and cleared the way for other deployment patterns like blue/green.",
     ],
