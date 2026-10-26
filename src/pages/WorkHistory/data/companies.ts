@@ -6,7 +6,7 @@ export const companies: { [key: string]: Company } = {
     displayName: "FCPS",
     url: "https://fcps.edu",
     location: "Alexandria, VA",
-    logo: { imageFile: "fcps.png" },
+    logo: { imageFile: "fcps.webp" },
   },
   npr: {
     fullName: "National Public Radio",
