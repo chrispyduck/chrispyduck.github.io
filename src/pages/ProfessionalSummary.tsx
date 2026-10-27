@@ -65,7 +65,7 @@ export default function ProfessionalSummary() {
           information as actionable tasks for a development team.
         </Section>
         <Section icon={BuildCircleOutlinedIcon} title="Recent Work">
-          Since late 2022, I've been a Site Reliability Engineer at{" "}
+          Since late 2022, I've been a Platform Engineer at{" "}
           <a href="https://www.peopledatalabs.com/">People Data Labs</a>,
           quietly improving platform reliability and developer experience in
           ways most people never have to think about. I designed and built

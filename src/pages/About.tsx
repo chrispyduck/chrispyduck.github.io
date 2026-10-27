@@ -68,7 +68,7 @@ export default function About() {
             I'm Chris Carlson
           </Typography>
           <Typography variant="h5" sx={{ color: "text.secondary", fontWeight: 500, mb: 2 }}>
-            Software Engineer, Soapmaker, Tinkerer
+            Your call is important to us.
           </Typography>
           <Stack
             direction="row"
@@ -124,7 +124,7 @@ export default function About() {
           <a href="#/history/2017-panth-developer">health</a>,{" "}
           <a href="#/history/2015-sytech-developer">law enforcement</a>, {" "}
           <a href="#/history/2019-ids-architect">defense</a> industries. My
-          past employers include <a href="#/history/2009-npr-developer">NPR</a>
+          past employers include <a href="#/history/2009-npr-developer">NPR</a>{" "}
           and <a href="#/history/2003-ehs-contractor">Fairfax County Public Schools</a>.
         </Typography>
       </Stack>

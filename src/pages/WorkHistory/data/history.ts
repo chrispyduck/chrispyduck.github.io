@@ -246,7 +246,7 @@ export const history: Array<WorkHistoryItem> = [
   },
   {
     id: "2024-pdl-plat",
-    position: "Site Reliability Engineer",
+    position: "Platform Engineer",
     startDate: new Date(2022, 10, 17),
     endDate: null,
     summary:
